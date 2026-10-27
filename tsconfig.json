@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "jsx": "react-jsx",
+    "types": [
+      "bun"
+    ]
+  },
+  "include": [
+    "lib",
+    "tests",
+    "fixtures",
+    "scripts",
+    "main.tsx"
+  ]
+}

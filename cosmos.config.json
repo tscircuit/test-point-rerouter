@@ -1,0 +1,12 @@
+{
+  "fixturesDir": "fixtures",
+  "fixtureFileSuffix": "page",
+  "plugins": [
+    "react-cosmos-plugin-vite"
+  ],
+  "ignore": [
+    "**/tests/**",
+    "**/scripts/**",
+    "**/dist/**"
+  ]
+}
