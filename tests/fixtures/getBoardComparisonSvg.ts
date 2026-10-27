@@ -47,24 +47,20 @@ export function getBoardComparisonSvg(
     title: string,
     subtitle: string,
   ): string => {
-    const board = convertCircuitJsonToPcbSvg(circuit, {
-      layer: "bottom",
-      width: 1000,
-      height: 562.5,
-      matchBoardAspectRatio: true,
-      drawPaddingOutsideBoard: false,
-      showFabricationNotes: false,
-      shouldDrawRatsNest: false,
-      showPcbNotes: true,
-      backgroundColor: "white",
-      colorOverrides: {
-        copper: { bottom: "#64748b", top: "#94a3b8" },
-        drill: "#ffffff",
-        substrate: "#f8fafc",
-        boardOutline: "#94a3b8",
+    const board = convertCircuitJsonToPcbSvg(
+      circuit.filter((element) => element.type !== "pcb_copper_pour"),
+      {
+        // Include top-side footprint pads and silkscreen alongside bottom test points.
+        width: 1000,
+        height: 562.5,
+        matchBoardAspectRatio: true,
+        drawPaddingOutsideBoard: false,
+        showFabricationNotes: false,
+        shouldDrawRatsNest: false,
+        showPcbNotes: true,
       },
-    })
-    return `<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="680" viewBox="0 0 1040 680"><rect width="1040" height="680" fill="white"/><text x="20" y="34" font-family="sans-serif" font-size="24" font-weight="700" fill="#152238">${title}</text><text x="20" y="62" font-family="sans-serif" font-size="16" fill="#475569">${subtitle}</text><g transform="translate(20 86)">${board}</g><text x="20" y="665" font-family="sans-serif" font-size="15" fill="#475569">astra/pd-power-supply · bottom copper · 80 × 45 mm · same board coordinates</text></svg>`
+    )
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="680" viewBox="0 0 1040 680"><rect width="1040" height="680" fill="#000000"/><text x="20" y="34" font-family="sans-serif" font-size="24" font-weight="700" fill="#ffffff">${title}</text><text x="20" y="62" font-family="sans-serif" font-size="16" fill="#cbd5e1">${subtitle}</text><g transform="translate(20 86)">${board}</g><text x="20" y="665" font-family="sans-serif" font-size="15" fill="#cbd5e1">astra/pd-power-supply · All layers + footprints · pours hidden · 80 × 45 mm · board coordinates</text></svg>`
   }
   return stackSvgsHorizontally(
     [

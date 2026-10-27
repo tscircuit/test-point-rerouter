@@ -27,7 +27,7 @@ The tests and debugger use [astra/pd-power-supply](https://tscircuit.com/astra/p
 
 ![PD power supply with generated probe targets](docs/test-point-images/pd-power-supply-before-after.png)
 
-The committed before/after snapshot shows the actual bottom copper with magenta rings and named callouts marking all three added pads. The rings are enlarged review annotations; the pads remain 1 mm. The prototype exporter independently runs `@tscircuit/checks` against the emitted Circuit JSON. Full routing/placement checks and explicit 0.2 mm pad/pad, pad/trace and via/pad checks must introduce no findings. The comparison preserves finding type, object references and measured geometry; it does not just compare totals. A negative-control test deliberately shorts a generated pad to an unrelated via and verifies detection. See [algorithm and fixture details](docs/test-point-reroute.md).
+The committed before/after snapshot shows the actual board in the standard PCB layer colors, including component footprint pads and silkscreen (filled copper pours are hidden for trace visibility) with magenta rings and named callouts marking all three added pads. The rings are enlarged review annotations; the pads remain 1 mm. The prototype exporter independently runs `@tscircuit/checks` against the emitted Circuit JSON. Full routing/placement checks and explicit 0.2 mm pad/pad, pad/trace and via/pad checks must introduce no findings. The comparison preserves finding type, object references and measured geometry; it does not just compare totals. A negative-control test deliberately shorts a generated pad to an unrelated via and verifies detection. See [algorithm and fixture details](docs/test-point-reroute.md).
 
 ## Development
 
