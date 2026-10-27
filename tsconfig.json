@@ -9,15 +9,21 @@
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",
-    "types": [
-      "bun"
-    ]
+    "types": ["bun"],
+    "baseUrl": ".",
+    "paths": {
+      "lib/*": ["./lib/*"],
+      "tests/*": ["./tests/*"]
+    }
   },
   "include": [
     "lib",
     "tests",
     "fixtures",
     "scripts",
-    "main.tsx"
+    "main.tsx",
+    "pages",
+    "cosmos.decorator.tsx",
+    "vite.config.ts"
   ]
 }

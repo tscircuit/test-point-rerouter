@@ -1,12 +1,7 @@
 {
-  "fixturesDir": "fixtures",
+  "$schema": "http://json.schemastore.org/cosmos-config",
+  "plugins": ["react-cosmos-plugin-vite"],
   "fixtureFileSuffix": "page",
-  "plugins": [
-    "react-cosmos-plugin-vite"
-  ],
-  "ignore": [
-    "**/tests/**",
-    "**/scripts/**",
-    "**/dist/**"
-  ]
+  "decoratorFile": "cosmos.decorator.tsx",
+  "ignore": ["**/tests/**", "**/scripts/**", "**/dist/**"]
 }
