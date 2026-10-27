@@ -1,0 +1,36 @@
+{
+  "clearanceMm": 0.2,
+  "suites": [
+    {
+      "name": "routing",
+      "before": 10,
+      "after": 10,
+      "added": []
+    },
+    {
+      "name": "placement",
+      "before": 16,
+      "after": 16,
+      "added": []
+    },
+    {
+      "name": "padPad",
+      "before": 2,
+      "after": 2,
+      "added": []
+    },
+    {
+      "name": "padTrace",
+      "before": 110,
+      "after": 110,
+      "added": []
+    },
+    {
+      "name": "viaPad",
+      "before": 28,
+      "after": 28,
+      "added": []
+    }
+  ],
+  "added": []
+}
