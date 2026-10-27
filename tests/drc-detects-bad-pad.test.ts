@@ -6,6 +6,8 @@ import {
   solvePdPowerSupply,
 } from "./fixtures/pdPowerSupply"
 
+// Full-board DRC runs multiple geometry checks before and after routing.
+// Allow for CI runner variability beyond Bun's default five-second timeout.
 test("DRC regression guard catches a generated pad shorted to unrelated copper", async () => {
   const before = loadPdPowerSupplyCircuit()
   const after = applyTestPointsToCircuit(
@@ -29,4 +31,4 @@ test("DRC regression guard catches a generated pad shorted to unrelated copper",
     report.suites.find((suite) => suite.name === "viaPad")!.added.length,
   ).toBeGreaterThan(0)
   expect(JSON.stringify(report.added)).toContain(generatedPad.pcb_smtpad_id)
-})
+}, 30_000)

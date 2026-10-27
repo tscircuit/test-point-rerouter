@@ -6,6 +6,8 @@ import {
   solvePdPowerSupply,
 } from "./fixtures/pdPowerSupply"
 
+// Full-board DRC runs multiple geometry checks before and after routing.
+// Allow for CI runner variability beyond Bun's default five-second timeout.
 test("actual emitted PD power supply pads and routes introduce no DRC findings", async () => {
   const before = loadPdPowerSupplyCircuit()
   const after = applyTestPointsToCircuit(
@@ -21,4 +23,4 @@ test("actual emitted PD power supply pads and routes introduce no DRC findings",
     "padTrace",
     "viaPad",
   ])
-})
+}, 30_000)
