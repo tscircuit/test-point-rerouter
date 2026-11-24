@@ -119,7 +119,9 @@ export class TestPointSolver<
           obstacle.height,
         ].every(Number.isFinite) ||
         obstacle.width < 0 ||
-        obstacle.height < 0
+        obstacle.height < 0 ||
+        (obstacle.ccwRotationDegrees !== undefined &&
+          !Number.isFinite(obstacle.ccwRotationDegrees))
       )
         throw new Error("Invalid test point obstacle geometry")
     }
